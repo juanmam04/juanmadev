@@ -12,7 +12,6 @@ export default function Background() {
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[var(--color-bg)]" aria-hidden="true">
-      <div className="absolute inset-0 grid-bg opacity-60" />
       <div className="absolute inset-0 noise opacity-30" />
       <div
         className="absolute -left-[20%] top-[-10%] h-[600px] w-[600px] rounded-full opacity-30 blur-[120px] transition-transform duration-100"

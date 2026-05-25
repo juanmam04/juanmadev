@@ -43,17 +43,20 @@ function AppShell() {
       <Header />
       <main id="main">
         <Hero />
-        <Suspense fallback={<SectionFallback />}>
-          <WhyDifferent />
-          <About />
-          <Journey />
-          <Experience />
-          <Projects />
-          <Capabilities />
-          <Stack />
-          <Principles />
-          <Contact />
-        </Suspense>
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-60" aria-hidden="true" />
+          <Suspense fallback={<SectionFallback />}>
+            <WhyDifferent />
+            <About />
+            <Journey />
+            <Experience />
+            <Projects />
+            <Capabilities />
+            <Stack />
+            <Principles />
+            <Contact />
+          </Suspense>
+        </div>
       </main>
       <Footer />
     </>

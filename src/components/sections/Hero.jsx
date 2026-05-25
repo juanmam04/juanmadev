@@ -19,9 +19,6 @@ const terminalLines = [
 export default function Hero() {
   const { parallax } = useInteractive()
   const typed = useTypewriter(terminalLines)
-  const nameParts = site.name.split(' ')
-  const nameLast = nameParts.pop()
-  const nameFirst = nameParts.join(' ')
 
   return (
     <section className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 lg:min-h-[92vh] lg:pt-40 lg:pb-32">
@@ -45,23 +42,24 @@ export default function Hero() {
             </InView>
 
             <InView delay={80}>
-              <h1 className="mt-6 max-w-4xl text-[clamp(2.75rem,10vw,5.75rem)] font-bold leading-[0.9] tracking-[-0.04em]">
-                <span className="text-gradient-hero">{nameFirst}</span>
-                <span className="block text-white">{nameLast}</span>
-              </h1>
-              <p className="mt-4 font-mono text-sm text-indigo-400/90 sm:text-base">
+              <p className="mt-6 text-lg font-medium text-zinc-300 sm:text-xl">
+                {site.name}
+              </p>
+              <p className="mt-1 font-mono text-xs text-zinc-500 sm:text-sm">
                 {site.title} · {site.location}
               </p>
             </InView>
 
             <InView delay={160}>
-              <p className="mt-8 max-w-xl text-2xl font-semibold leading-snug tracking-tight text-zinc-200 sm:text-3xl lg:text-[2rem]">
-                {hero.headline}
-              </p>
+              <h1 className="mt-6 max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.5rem]">
+                <span className="text-gradient-hero">I build software</span>
+                <br />
+                <span className="text-white">products from scratch.</span>
+              </h1>
             </InView>
 
             <InView delay={220}>
-              <p className="mt-5 max-w-xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-300 sm:text-xl">
                 {hero.subheadline}
               </p>
             </InView>
