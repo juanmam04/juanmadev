@@ -6,14 +6,35 @@ import Button from '../ui/Button'
 import Magnetic from '../motion/Magnetic'
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(
+    () => typeof window !== 'undefined' && window.scrollY > 20,
+  )
   const [mobileOpen, setMobileOpen] = useState(false)
   const { activeSection } = useInteractive()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    let raf = 0
+    let lastScrolled = typeof window !== 'undefined' && window.scrollY > 20
+
+    const flush = () => {
+      raf = 0
+      const next = window.scrollY > 20
+      if (next !== lastScrolled) {
+        lastScrolled = next
+        setScrolled(next)
+      }
+    }
+
+    const onScroll = () => {
+      if (raf) return
+      raf = requestAnimationFrame(flush)
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(raf)
+    }
   }, [])
 
   useEffect(() => {

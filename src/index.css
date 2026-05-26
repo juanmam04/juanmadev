@@ -153,6 +153,16 @@
     @apply h-px w-full bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent;
   }
 
+  /** Parallax del panel hero vía --smooth-* (actualizado sin re-renders de React). */
+  .hero-panel-parallax {
+    will-change: transform;
+    transform: translate3d(
+      calc((var(--smooth-x, 0.5) - 0.5) * 12px),
+      calc((var(--smooth-y, 0.5) - 0.5) * 12px),
+      0
+    );
+  }
+
   .grid-bg {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),

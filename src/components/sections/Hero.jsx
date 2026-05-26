@@ -1,5 +1,4 @@
 import { hero, links, site, socialLinks } from '../../data/site'
-import { useInteractive } from '../../context/interactive'
 import { useTypewriter } from '../../hooks/useTypewriter'
 import Badge from '../ui/Badge'
 import Button from '../ui/Button'
@@ -17,7 +16,6 @@ const terminalLines = [
 ]
 
 export default function Hero() {
-  const { parallax } = useInteractive()
   const typed = useTypewriter(terminalLines)
 
   return (
@@ -127,10 +125,7 @@ export default function Hero() {
           </div>
 
           <InView delay={180} className="hidden sm:block">
-            <div
-              style={parallax(12)}
-              className="transition-transform duration-100 ease-out lg:mt-4"
-            >
+            <div className="hero-panel-parallax transition-transform duration-100 ease-out lg:mt-4">
               <HeroPanel />
             </div>
           </InView>
