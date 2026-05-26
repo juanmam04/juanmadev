@@ -18,6 +18,10 @@ export function useAnimationFrame(callback, enabled = true) {
 
     let frame
     const loop = (time) => {
+      if (document.hidden) {
+        frame = requestAnimationFrame(loop)
+        return
+      }
       const delta = last.current ? time - last.current : 16
       last.current = time
       cb.current(time, delta)

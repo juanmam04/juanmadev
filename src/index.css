@@ -59,6 +59,36 @@
     @apply mx-auto h-px max-w-6xl bg-gradient-to-r from-transparent via-white/[0.06] to-transparent;
   }
 
+  .background-spotlight {
+    background: radial-gradient(
+      ellipse 50% 40% at 50% 20%,
+      rgba(99, 102, 241, 0.08),
+      transparent
+    );
+  }
+
+  .background-spotlight--track {
+    background: radial-gradient(
+      ellipse 50% 40% at var(--pointer-xp, 50%) var(--pointer-yp, 30%),
+      rgba(99, 102, 241, 0.08),
+      transparent
+    );
+  }
+
+  .background-orb--track.background-orb--indigo {
+    transform: translate(
+      calc((var(--mouse-x, 50vw) - 50vw) * 0.08),
+      calc((var(--mouse-y, 50vh) - 50vh) * 0.06)
+    );
+  }
+
+  .background-orb--track.background-orb--cyan {
+    transform: translate(
+      calc((var(--mouse-x, 50vw) - 50vw) * 0.1),
+      calc((var(--mouse-y, 50vh) - 50vh) * 0.08)
+    );
+  }
+
   .surface-card {
     @apply relative overflow-hidden rounded-2xl border border-white/[0.07] bg-zinc-900/30 backdrop-blur-md;
   }
@@ -263,5 +293,14 @@
   .animate-float,
   .animate-float-delayed {
     animation: none;
+  }
+
+  .text-gradient-hero,
+  .contact-aurora {
+    animation: none;
+  }
+
+  .noise {
+    opacity: 0.15;
   }
 }

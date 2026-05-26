@@ -10,7 +10,7 @@ export default function CursorGlow() {
       className="pointer-events-none fixed inset-0 z-[1] hidden md:block"
       aria-hidden="true"
       style={{
-        background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(99,102,241,0.08), transparent 40%)`,
+        background: `radial-gradient(520px circle at var(--mouse-x) var(--mouse-y), rgba(99,102,241,0.09), transparent 42%)`,
       }}
     />
   )

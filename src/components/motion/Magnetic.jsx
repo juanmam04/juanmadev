@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { useReducedMotion } from '../../hooks/useReducedMotion'
+import { usePerfMode } from '../../hooks/usePerfMode'
 import { springStep } from '../../lib/math'
 import { theme } from '../../tokens/theme'
 import { useAnimationFrame } from '../../hooks/useAnimationFrame'
@@ -14,7 +14,7 @@ export default function Magnetic({ children, className = '', strength = 0.3 }) {
   const velocityY = useRef(0)
   const target = useRef({ x: 0, y: 0 })
   const [translate, setTranslate] = useState({ x: 0, y: 0 })
-  const reduced = useReducedMotion()
+  const reduced = usePerfMode()
 
   useAnimationFrame(() => {
     const { stiffness, damping } = theme.motion.spring

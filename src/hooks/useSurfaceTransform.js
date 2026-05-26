@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
 import { clamp } from '../lib/math'
-import { useReducedMotion } from './useReducedMotion'
+import { usePerfMode } from './usePerfMode'
 
 /**
  * 3D tilt + local spotlight for card surfaces.
@@ -10,7 +10,7 @@ export function useSurfaceTransform({ intensity = 8 } = {}) {
   const ref = useRef(null)
   const [transform, setTransform] = useState('')
   const [spot, setSpot] = useState({ x: 50, y: 50 })
-  const reduced = useReducedMotion()
+  const reduced = usePerfMode()
 
   const onMove = useCallback(
     (e) => {
