@@ -1,4 +1,5 @@
 import { lazy, Suspense } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import { InteractiveProvider } from './context/InteractiveProvider'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 import Background from './components/ui/Background'
@@ -68,6 +69,7 @@ export default function App() {
   return (
     <InteractiveProvider>
       <AppShell />
+      <Analytics />
     </InteractiveProvider>
   )
 }
