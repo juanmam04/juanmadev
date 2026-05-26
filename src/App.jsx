@@ -44,7 +44,8 @@ function AppShell() {
       <main id="main">
         <Hero />
         <div className="relative">
-          <div className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-60" aria-hidden="true" />
+          <div className="section-divider" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-50" aria-hidden="true" />
           <Suspense fallback={<SectionFallback />}>
             <WhyDifferent />
             <About />

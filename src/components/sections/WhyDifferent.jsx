@@ -50,7 +50,9 @@ export default function WhyDifferent() {
                   <span className="mt-6 block font-mono text-xs tabular-nums text-zinc-600">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="mt-3 text-xl font-bold text-white">{item.title}</h3>
+                  <h3 className="mt-3 text-lg font-semibold tracking-tight text-white sm:text-xl">
+                    {item.title}
+                  </h3>
                   <p className="mt-3 text-sm leading-relaxed text-zinc-400">{item.description}</p>
                 </article>
               </InteractiveSurface>

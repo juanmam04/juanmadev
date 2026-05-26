@@ -2,6 +2,17 @@
 
 React + Vite portfolio with a custom motion layer (no animation libraries).
 
+## Project location
+
+Use this folder as the single source of truth:
+
+```bash
+cd ~/juanmadev
+# /Users/juanmamartinez/juanmadev
+```
+
+Static assets (resume, Servo screenshot): `public/JuanManuelMartinezResume.pdf`, `public/servo-preview.jpg`.
+
 ## Engineering highlights
 
 - **Canvas dot field** (`DotField`) — pointer-reactive grid, `ResizeObserver`, RAF loop, `devicePixelRatio` cap

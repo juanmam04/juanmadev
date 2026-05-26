@@ -2,15 +2,17 @@ export const site = {
   name: 'Juan Manuel Martínez',
   title: 'Fullstack Software Engineer',
   location: 'Montevideo, Uruguay',
-  email: 'juanmamartinez04@gmail.com',
+  email: 'juanmartinezt.dev@gmail.com',
 }
 
 export const links = {
   github: 'https://github.com/juanmam04',
-  linkedin: 'https://linkedin.com/in/juanmamartinez',
-  servo: 'https://servo.com.uy',
-  email: 'mailto:juanmamartinez04@gmail.com',
-  resume: '/resume.pdf',
+  linkedin: 'https://www.linkedin.com/in/juan-manuel-mart%C3%ADnez-trinidad',
+  twitter: 'https://x.com/jm_martiinez',
+  servo: 'https://servo.com.uy/',
+  email: 'mailto:juanmartinezt.dev@gmail.com',
+  resume: '/JuanManuelMartinezResume.pdf',
+  resumeFilename: 'JuanManuelMartinezResume.pdf',
 }
 
 export const navigation = [
@@ -114,12 +116,48 @@ export const projects = [
     role: 'Founder & Fullstack Developer',
     subtitle: 'Marketplace platform for service providers in Uruguay.',
     description:
-      "Servo (servo.com.uy) is a fullstack marketplace platform that connects clients with service providers across Uruguay. I'm responsible for the product end-to-end: frontend, backend, database, infrastructure, deployment, user experience, and product strategy.",
+      "Servo connects clients with service providers across Uruguay — search, profiles, and direct contact in one product. I own the stack end-to-end: frontend, backend, database, AWS infrastructure, deployment, and product decisions.",
     stack: ['React', 'Node.js', 'MySQL', 'AWS EC2', 'AWS RDS', 'NGINX', 'PM2'],
     links: {
-      website: 'https://servo.com.uy',
+      website: links.servo,
       caseStudy: '#servo-case-study',
     },
+    caseStudy: [
+      {
+        key: 'problem',
+        title: 'Problem',
+        content:
+          'Finding trusted local service providers in Uruguay is fragmented — clients bounce between informal channels with little visibility into quality or availability.',
+      },
+      {
+        key: 'solution',
+        title: 'Solution',
+        content:
+          'A focused marketplace where clients discover verified providers by category and location, with real ratings and direct contact — built as a production web product, not a prototype.',
+      },
+      {
+        key: 'role',
+        title: 'My role',
+        content:
+          'Founder and sole engineer: product direction, UX, API design, frontend, backend, schema, AWS deployment, and ongoing operations.',
+      },
+      {
+        key: 'stack',
+        title: 'Stack',
+        content:
+          'React SPA, Node.js API, MySQL on RDS, EC2 + NGINX + PM2 for production hosting and process management.',
+      },
+      {
+        key: 'challenges',
+        title: 'Challenges',
+        wide: true,
+        list: [
+          'Shipping full product scope while maintaining production reliability solo.',
+          'Designing search and discovery flows that stay simple on mobile.',
+          'Owning infrastructure, deployments, and iteration speed without a dedicated ops team.',
+        ],
+      },
+    ],
   },
   {
     id: 'ai-automation',
@@ -256,6 +294,7 @@ export const contact = {
 export const socialLinks = [
   { label: 'GitHub', href: links.github, icon: 'github' },
   { label: 'LinkedIn', href: links.linkedin, icon: 'linkedin' },
+  { label: 'X', href: links.twitter, icon: 'x' },
   { label: 'Servo', href: links.servo, icon: 'external' },
   { label: 'Email', href: links.email, icon: 'mail' },
 ]

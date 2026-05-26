@@ -25,8 +25,10 @@ export default function Contact() {
                 aria-hidden="true"
               />
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-indigo-400">Get in touch</p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">{contact.title}</h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                {contact.title}
+              </h2>
+              <p className="text-lead mt-5 max-w-2xl">
                 {contact.description}
               </p>
               <div className="mt-10 flex flex-wrap gap-3">
@@ -43,8 +45,13 @@ export default function Contact() {
                     GitHub
                   </Button>
                 </Magnetic>
+                <Magnetic strength={0.3}>
+                  <Button variant="secondary" href={links.twitter} external>
+                    X
+                  </Button>
+                </Magnetic>
                 <Magnetic strength={0.25}>
-                  <Button variant="ghost" href={links.resume} download>
+                  <Button variant="ghost" href={links.resume} download={links.resumeFilename}>
                     Resume
                   </Button>
                 </Magnetic>

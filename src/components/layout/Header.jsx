@@ -27,13 +27,13 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-[background,border-color,backdrop-filter] duration-500 ${
         scrolled || mobileOpen
-          ? 'border-b border-white/[0.06] bg-[#050508]/80 backdrop-blur-2xl'
-          : 'bg-transparent'
+          ? 'border-b border-white/[0.06] bg-[#050508]/72 backdrop-blur-xl backdrop-saturate-150'
+          : 'border-b border-transparent bg-transparent'
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8 lg:px-12">
+      <div className="mx-auto flex h-[3.75rem] max-w-6xl items-center justify-between px-5 sm:h-16 sm:px-8 lg:px-12">
         <Magnetic strength={0.2}>
           <a
             href="#"
@@ -66,11 +66,12 @@ export default function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative rounded-full px-4 py-1.5 text-sm transition-all duration-300 ${
+                className={`relative rounded-full px-4 py-1.5 text-sm transition-colors duration-300 ${
                   isActive
                     ? 'bg-white/[0.08] text-white'
-                    : 'text-zinc-400 hover:bg-white/[0.06] hover:text-white'
+                    : 'text-zinc-500 hover:bg-white/[0.05] hover:text-zinc-200'
                 }`}
+                {...(isActive ? { 'aria-current': 'location' } : {})}
               >
                 {item.label}
               </a>
@@ -80,7 +81,12 @@ export default function Header() {
 
         <div className="flex items-center gap-3">
           <Magnetic className="hidden sm:block" strength={0.25}>
-            <Button variant="secondary" href={links.resume} download className="!px-4 !py-2 text-xs">
+            <Button
+              variant="secondary"
+              href={links.resume}
+              download={links.resumeFilename}
+              className="!px-4 !py-2 text-xs"
+            >
               Resume
             </Button>
           </Magnetic>

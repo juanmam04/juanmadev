@@ -11,10 +11,10 @@ export default function Footer() {
             JM
           </span>
           <div>
-            <p className="text-sm font-semibold text-zinc-200">
-              {site.name} — {site.title}
+            <p className="text-sm font-medium text-zinc-300">
+              {site.name}
             </p>
-            <p className="mt-0.5 font-mono text-xs text-zinc-600">Built with React + Vite</p>
+            <p className="mt-0.5 text-xs text-zinc-600">{site.title}</p>
           </div>
         </div>
         <p className="text-sm text-zinc-500">
