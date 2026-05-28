@@ -186,6 +186,48 @@ Al reemplazar el CV, mantené el nombre `JuanManuelMartinezResume.pdf` o actuali
 
 ---
 
+## Asistente IA (preguntas sobre Juan)
+
+Botón flotante **“Preguntame sobre Juan”** — responde con contexto del portfolio (experiencia, Servo, stack, disponibilidad).
+
+### Cómo funciona
+
+- **Frontend:** `src/components/assistant/AssistantChat.jsx`
+- **Conocimiento:** se arma desde `src/data/site.js` + `src/data/assistantProfile.js` → `buildAssistantKnowledge.js`
+- **API:** `api/assistant/chat.js` (Vercel serverless) — la API key **nunca** va al navegador
+
+### Configurar en local
+
+1. Copiá `.env.example` → `.env`
+2. Creá una key en [Groq Console](https://console.groq.com/keys) (gratis) y pegala:
+
+```bash
+GROQ_API_KEY=gsk_...
+```
+
+3. `npm run dev` — Vite expone `/api/assistant/chat` en desarrollo
+
+Alternativa: `OPENAI_API_KEY` en `.env` (usa `gpt-4o-mini` por defecto).
+
+### Deploy en Vercel
+
+En el proyecto → **Settings → Environment Variables**:
+
+| Variable | Descripción |
+|----------|-------------|
+| `GROQ_API_KEY` | Recomendado (Groq) |
+| `GROQ_MODEL` | Opcional (`llama-3.3-70b-versatile`) |
+| `OPENAI_API_KEY` | Alternativa a Groq |
+
+Redeploy después de agregar la variable.
+
+### Que la IA te conozca mejor
+
+Editá **`src/data/assistantProfile.js`** (idiomas, FAQs, límites, contexto de CreditON/Servo).  
+Los textos del sitio siguen en **`src/data/site.js`** — el asistente los incluye automáticamente.
+
+---
+
 ## Deploy
 
 Build estático compatible con **Vercel**, Netlify, Cloudflare Pages, etc.

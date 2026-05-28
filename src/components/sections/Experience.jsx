@@ -22,19 +22,19 @@ export default function Experience() {
                   <div className="p-6 sm:p-8">
                     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                       <div>
-                        <h3 className="text-2xl font-bold text-white">{job.company}</h3>
+                        <h3 className="text-2xl font-bold text-heading">{job.company}</h3>
                         <p className="mt-1 font-mono text-sm text-indigo-400">{job.role}</p>
                       </div>
-                      <time className="w-fit rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1 text-xs text-zinc-500">
+                      <time className="w-fit rounded-full border border-glass bg-glass-strong px-3 py-1 text-xs text-theme-muted-2">
                         {job.period}
                       </time>
                     </div>
-                    <p className="mt-5 text-sm leading-relaxed text-zinc-400">{job.description}</p>
+                    <p className="mt-5 text-sm leading-relaxed text-theme-muted">{job.description}</p>
                     <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                       {job.bullets.map((bullet) => (
                         <li
                           key={bullet.slice(0, 50)}
-                          className="flex gap-3 rounded-lg border border-white/[0.04] bg-white/[0.02] p-3 text-sm leading-relaxed text-zinc-400 transition-colors hover:border-indigo-500/20 hover:bg-indigo-500/5"
+                          className="elevated-card flex gap-3 rounded-lg p-3 text-sm leading-relaxed text-theme-muted transition-colors hover:border-indigo-500/20 hover:bg-indigo-500/5"
                         >
                           <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-500" aria-hidden="true" />
                           {bullet}

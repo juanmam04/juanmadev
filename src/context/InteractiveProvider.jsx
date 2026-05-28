@@ -12,21 +12,27 @@ export function InteractiveProvider({ children }) {
   const smoothY = useRef(0.5)
   const velX = useRef(0)
   const velY = useRef(0)
-  /** Immediate pointer — used by background / canvas (no spring lag). */
+  /** Immediate pointer — used by canvas (no spring lag). */
   const pointerRef = useRef({ x: 0.5, y: 0.5, clientX: 0, clientY: 0 })
+  const pendingPointerRef = useRef(null)
+  const pointerRafRef = useRef(0)
   const reducedMotion = useReducedMotion()
   const liteMode = useLiteMode()
   const trackPointer = !reducedMotion && !liteMode
 
   const { stiffness, damping } = theme.motion.spring
 
-  /** Spring + pointer CSS vars run on rAF only — avoids re-rendering the tree on every mousemove. */
+  /** Pointer CSS vars + spring run on rAF only — one style flush per frame max. */
   useEffect(() => {
     const root = document.documentElement.style
 
     if (!trackPointer) {
       root.setProperty('--smooth-x', '0.5')
       root.setProperty('--smooth-y', '0.5')
+      root.setProperty('--mouse-x', '50vw')
+      root.setProperty('--mouse-y', '50vh')
+      root.setProperty('--pointer-xp', '50%')
+      root.setProperty('--pointer-yp', '50%')
       smoothX.current = 0.5
       smoothY.current = 0.5
       velX.current = 0
@@ -34,9 +40,20 @@ export function InteractiveProvider({ children }) {
       return
     }
 
-    let raf = 0
+    let springRaf = 0
 
-    const loop = () => {
+    const flushPointerStyles = () => {
+      pointerRafRef.current = 0
+      const pending = pendingPointerRef.current
+      if (!pending) return
+      pendingPointerRef.current = null
+      root.setProperty('--mouse-x', `${pending.clientX}px`)
+      root.setProperty('--mouse-y', `${pending.clientY}px`)
+      root.setProperty('--pointer-xp', `${pending.xp}%`)
+      root.setProperty('--pointer-yp', `${pending.yp}%`)
+    }
+
+    const springLoop = () => {
       const tgt = targetRef.current
       const nx = springStep(smoothX.current, tgt.x, velX, stiffness, damping)
       const ny = springStep(smoothY.current, tgt.y, velY, stiffness, damping)
@@ -52,32 +69,54 @@ export function InteractiveProvider({ children }) {
         Math.abs(velY.current) <= 0.0001
 
       if (!settled) {
-        raf = requestAnimationFrame(loop)
+        springRaf = requestAnimationFrame(springLoop)
       } else {
-        raf = 0
+        springRaf = 0
       }
     }
 
-    const kick = () => {
-      if (raf === 0) raf = requestAnimationFrame(loop)
+    const kickSpring = () => {
+      if (springRaf === 0) springRaf = requestAnimationFrame(springLoop)
     }
 
-    const onMove = (e) => {
-      const x = e.clientX / window.innerWidth
-      const y = e.clientY / window.innerHeight
+    const schedulePointerFlush = () => {
+      if (pointerRafRef.current !== 0) return
+      pointerRafRef.current = requestAnimationFrame(() => {
+        flushPointerStyles()
+        kickSpring()
+      })
+    }
+
+    const onPointer = (clientX, clientY) => {
+      const x = clientX / window.innerWidth
+      const y = clientY / window.innerHeight
       targetRef.current = { x, y }
-      pointerRef.current = { x, y, clientX: e.clientX, clientY: e.clientY }
-      root.setProperty('--mouse-x', `${e.clientX}px`)
-      root.setProperty('--mouse-y', `${e.clientY}px`)
-      root.setProperty('--pointer-xp', `${x * 100}%`)
-      root.setProperty('--pointer-yp', `${y * 100}%`)
-      kick()
+      pointerRef.current = { x, y, clientX, clientY }
+      pendingPointerRef.current = {
+        clientX,
+        clientY,
+        xp: x * 100,
+        yp: y * 100,
+      }
+      schedulePointerFlush()
+    }
+
+    const onMove = (e) => onPointer(e.clientX, e.clientY)
+    const onTouch = (e) => {
+      const t = e.touches[0]
+      if (t) onPointer(t.clientX, t.clientY)
     }
 
     window.addEventListener('mousemove', onMove, { passive: true })
+    window.addEventListener('touchmove', onTouch, { passive: true })
+    window.addEventListener('touchstart', onTouch, { passive: true })
     return () => {
       window.removeEventListener('mousemove', onMove)
-      cancelAnimationFrame(raf)
+      window.removeEventListener('touchmove', onTouch)
+      window.removeEventListener('touchstart', onTouch)
+      cancelAnimationFrame(springRaf)
+      cancelAnimationFrame(pointerRafRef.current)
+      pointerRafRef.current = 0
     }
   }, [trackPointer, stiffness, damping])
 

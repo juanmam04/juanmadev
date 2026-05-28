@@ -1,36 +1,33 @@
-import { usePerfMode } from '../../hooks/usePerfMode'
-
+/** Site-wide backdrop — static gradients; hero runs its own simulation. */
 export default function Background() {
-  const staticBg = usePerfMode()
-
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[var(--color-bg)]" aria-hidden="true">
-      <div className="absolute inset-0 noise opacity-30 max-md:opacity-20" />
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 bg-[var(--color-bg)]" />
+
       <div
-        className={`background-orb background-orb--indigo absolute -left-[20%] top-[-10%] h-[600px] w-[600px] rounded-full opacity-30 blur-[120px] max-md:h-[420px] max-md:w-[420px] max-md:blur-[80px] max-md:opacity-20 ${
-          staticBg ? '' : 'background-orb--track'
-        }`}
+        className="absolute inset-0 dark:block light:hidden"
         style={{
-          background: 'radial-gradient(circle, rgba(99,102,241,0.4) 0%, transparent 70%)',
-          animation: staticBg ? undefined : 'pulse-glow 8s ease-in-out infinite',
+          background:
+            'radial-gradient(ellipse 100% 70% at 50% -20%, var(--spotlight), transparent 58%)',
         }}
       />
+
+      <div className="absolute inset-0 hidden light:block">
+        <div className="light-mesh absolute inset-0" />
+        <div className="light-aura-top absolute inset-0" />
+      </div>
+
       <div
-        className={`background-orb background-orb--cyan absolute -right-[10%] top-[20%] h-[500px] w-[500px] rounded-full opacity-20 blur-[100px] max-md:h-[360px] max-md:w-[360px] max-md:blur-[70px] max-md:opacity-[0.15] ${
-          staticBg ? '' : 'background-orb--track'
-        }`}
+        className="absolute inset-0 noise"
+        style={{ opacity: 'var(--noise-opacity, 0.3)' }}
+      />
+
+      <div
+        className="absolute inset-x-0 top-0 h-px"
         style={{
-          background: 'radial-gradient(circle, rgba(34,211,238,0.35) 0%, transparent 70%)',
-          animation: staticBg ? undefined : 'pulse-glow 10s ease-in-out 2s infinite',
+          backgroundImage: `linear-gradient(to right, transparent, var(--top-line), transparent)`,
         }}
       />
-      <div
-        className={`background-spotlight absolute inset-0 opacity-50 max-md:opacity-30 ${
-          staticBg ? '' : 'background-spotlight--track'
-        }`}
-        aria-hidden="true"
-      />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
     </div>
   )
 }

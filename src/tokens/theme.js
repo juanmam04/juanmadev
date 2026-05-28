@@ -1,10 +1,137 @@
-export const theme = {
-  color: {
+export const THEME_STORAGE_KEY = 'juanmadev-theme'
+
+export const themes = {
+  dark: {
     bg: '#050508',
     fg: '#fafafa',
     muted: '#a1a1aa',
+    muted2: '#71717a',
+    muted3: '#52525b',
+    heading: '#ffffff',
     border: 'rgba(255,255,255,0.08)',
+    borderSubtle: 'rgba(255,255,255,0.06)',
+    glassBg: 'rgba(255,255,255,0.02)',
+    glassBgHover: 'rgba(255,255,255,0.05)',
+    glassBgStrong: 'rgba(255,255,255,0.03)',
+    glassBorder: 'rgba(255,255,255,0.08)',
+    glassBorderHover: 'rgba(255,255,255,0.14)',
+    surfaceBg: 'rgba(24,24,27,0.3)',
+    surfaceBgHover: 'rgba(24,24,27,0.5)',
+    surfaceBorder: 'rgba(255,255,255,0.07)',
+    elevatedBg: 'rgba(255,255,255,0.03)',
+    elevatedBorder: 'rgba(255,255,255,0.06)',
+    elevatedShadow: 'none',
+    headerBg: 'rgba(5,5,8,0.72)',
+    headerBgMobile: 'rgba(5,5,8,0.95)',
+    panelBg: 'rgba(5,5,8,0.95)',
+    assistantBg: 'rgba(10,10,18,0.9)',
+    assistantPanelBg: 'rgba(7,7,13,0.95)',
+    terminalBg: 'rgba(0,0,0,0.4)',
+    heroPanelChrome: 'rgba(9,9,11,0.8)',
     accent: '#818cf8',
+    dotRgb: '255,255,255',
+    dotAlphaMin: '0.06',
+    dotAlphaMax: '0.45',
+    linkRgb: '129,140,248',
+    linkDotAlpha: '0.14',
+    linkLineAlpha: '0.12',
+    linkPulseAlpha: '0.5',
+    gridLine: 'rgba(255,255,255,0.03)',
+    dividerVia: 'rgba(255,255,255,0.06)',
+    selectionBg: 'rgba(99,102,241,0.4)',
+    selectionFg: '#ffffff',
+    metaTheme: '#050508',
+    navText: '#71717a',
+    navTextHover: '#e4e4e7',
+    navActiveBg: 'rgba(255,255,255,0.08)',
+    navActiveText: '#ffffff',
+    inputBg: 'rgba(255,255,255,0.03)',
+    inputBorder: 'rgba(255,255,255,0.1)',
+    inputText: '#fafafa',
+    inputPlaceholder: '#52525b',
+    cardShadow: 'rgba(99,102,241,0.25)',
+    surfaceShadow: 'none',
+    topLine: 'rgba(255,255,255,0.1)',
+    orbIndigo: 'rgba(99,102,241,0.4)',
+    orbCyan: 'rgba(34,211,238,0.35)',
+    spotlight: 'rgba(99,102,241,0.08)',
+    cursorGlow: 'rgba(99,102,241,0.09)',
+    noiseOpacity: '0.3',
+    sectionTintTop: 'rgba(99,102,241,0.03)',
+    sectionTintBottom: 'rgba(34,211,238,0.02)',
+    glowLine: 'rgba(99,102,241,0.4)',
+  },
+  light: {
+    bg: '#fafafa',
+    fg: '#18181b',
+    muted: '#3f3f46',
+    muted2: '#52525b',
+    muted3: '#71717a',
+    heading: '#09090b',
+    border: 'rgba(99,102,241,0.14)',
+    borderSubtle: 'rgba(99,102,241,0.08)',
+    glassBg: '#ffffff',
+    glassBgHover: '#f8fafc',
+    glassBgStrong: '#ffffff',
+    glassBorder: 'rgba(15,23,42,0.1)',
+    glassBorderHover: 'rgba(79,70,229,0.35)',
+    surfaceBg: '#ffffff',
+    surfaceBgHover: '#ffffff',
+    surfaceBorder: 'rgba(15,23,42,0.08)',
+    elevatedBg: '#f1f5f9',
+    elevatedBorder: 'rgba(15,23,42,0.09)',
+    headerBg: 'rgba(250,250,250,0.82)',
+    headerBgMobile: 'rgba(250,250,250,0.96)',
+    panelBg: '#ffffff',
+    assistantBg: 'rgba(255,255,255,0.9)',
+    assistantPanelBg: 'rgba(255,255,255,0.95)',
+    terminalBg: 'rgba(238,242,255,0.9)',
+    heroPanelChrome: 'rgba(255,255,255,0.85)',
+    accent: '#4f46e5',
+    dotRgb: '99,102,241',
+    dotAlphaMin: '0.06',
+    dotAlphaMax: '0.28',
+    linkRgb: '79,70,229',
+    linkDotAlpha: '0.16',
+    linkLineAlpha: '0.1',
+    linkPulseAlpha: '0.42',
+    gridLine: 'rgba(15,23,42,0.055)',
+    dividerVia: 'rgba(99,102,241,0.2)',
+    selectionBg: 'rgba(99,102,241,0.2)',
+    selectionFg: '#09090b',
+    metaTheme: '#fafafa',
+    navText: '#52525b',
+    navTextHover: '#18181b',
+    navActiveBg: 'rgba(99,102,241,0.12)',
+    navActiveText: '#4338ca',
+    inputBg: 'rgba(255,255,255,0.9)',
+    inputBorder: 'rgba(99,102,241,0.2)',
+    inputText: '#18181b',
+    inputPlaceholder: '#a1a1aa',
+    cardShadow: 'rgba(79,70,229,0.14)',
+    surfaceShadow:
+      '0 1px 2px rgba(15,23,42,0.04), 0 8px 32px -12px rgba(15,23,42,0.1), 0 0 0 1px rgba(15,23,42,0.06)',
+    elevatedShadow: '0 1px 2px rgba(15,23,42,0.05), inset 0 1px 0 rgba(255,255,255,0.9)',
+    topLine: 'rgba(15,23,42,0.07)',
+    orbIndigo: 'rgba(99,102,241,0.35)',
+    orbCyan: 'rgba(34,211,238,0.28)',
+    spotlight: 'rgba(99,102,241,0.08)',
+    cursorGlow: 'rgba(99,102,241,0.07)',
+    noiseOpacity: '0.05',
+    sectionTintTop: 'rgba(99,102,241,0.05)',
+    sectionTintBottom: 'rgba(34,211,238,0.04)',
+    glowLine: 'rgba(99,102,241,0.45)',
+  },
+}
+
+/** Motion/layout tokens (not theme-mode dependent) */
+export const theme = {
+  color: {
+    bg: themes.dark.bg,
+    fg: themes.dark.fg,
+    muted: themes.dark.muted,
+    border: themes.dark.border,
+    accent: themes.dark.accent,
   },
   motion: {
     spring: { stiffness: 0.14, damping: 0.8 },
@@ -15,11 +142,86 @@ export const theme = {
   },
 }
 
-export function applyThemeTokens() {
+const TOKEN_MAP = {
+  '--color-bg': 'bg',
+  '--color-fg': 'fg',
+  '--color-muted': 'muted',
+  '--color-muted-2': 'muted2',
+  '--color-muted-3': 'muted3',
+  '--color-heading': 'heading',
+  '--color-border': 'border',
+  '--color-border-subtle': 'borderSubtle',
+  '--glass-bg': 'glassBg',
+  '--glass-bg-hover': 'glassBgHover',
+  '--glass-bg-strong': 'glassBgStrong',
+  '--glass-border': 'glassBorder',
+  '--glass-border-hover': 'glassBorderHover',
+  '--surface-bg': 'surfaceBg',
+  '--surface-bg-hover': 'surfaceBgHover',
+  '--surface-border': 'surfaceBorder',
+  '--elevated-bg': 'elevatedBg',
+  '--elevated-border': 'elevatedBorder',
+  '--elevated-shadow': 'elevatedShadow',
+  '--surface-shadow': 'surfaceShadow',
+  '--header-bg': 'headerBg',
+  '--header-bg-mobile': 'headerBgMobile',
+  '--panel-bg': 'panelBg',
+  '--assistant-bg': 'assistantBg',
+  '--assistant-panel-bg': 'assistantPanelBg',
+  '--terminal-bg': 'terminalBg',
+  '--hero-panel-chrome': 'heroPanelChrome',
+  '--color-accent': 'accent',
+  '--dot-rgb': 'dotRgb',
+  '--dot-alpha-min': 'dotAlphaMin',
+  '--dot-alpha-max': 'dotAlphaMax',
+  '--link-rgb': 'linkRgb',
+  '--link-dot-alpha': 'linkDotAlpha',
+  '--link-line-alpha': 'linkLineAlpha',
+  '--link-pulse-alpha': 'linkPulseAlpha',
+  '--grid-line': 'gridLine',
+  '--divider-via': 'dividerVia',
+  '--selection-bg': 'selectionBg',
+  '--selection-fg': 'selectionFg',
+  '--nav-text': 'navText',
+  '--nav-text-hover': 'navTextHover',
+  '--nav-active-bg': 'navActiveBg',
+  '--nav-active-text': 'navActiveText',
+  '--input-bg': 'inputBg',
+  '--input-border': 'inputBorder',
+  '--input-text': 'inputText',
+  '--input-placeholder': 'inputPlaceholder',
+  '--card-shadow': 'cardShadow',
+  '--top-line': 'topLine',
+  '--orb-indigo': 'orbIndigo',
+  '--orb-cyan': 'orbCyan',
+  '--spotlight': 'spotlight',
+  '--cursor-glow': 'cursorGlow',
+  '--noise-opacity': 'noiseOpacity',
+  '--section-tint-top': 'sectionTintTop',
+  '--section-tint-bottom': 'sectionTintBottom',
+  '--glow-line': 'glowLine',
+}
+
+export function getStoredTheme() {
+  if (typeof window === 'undefined') return 'dark'
+  try {
+    const stored = localStorage.getItem(THEME_STORAGE_KEY)
+    if (stored === 'light' || stored === 'dark') return stored
+  } catch {
+    /* ignore */
+  }
+  return 'dark'
+}
+
+export function applyThemeTokens(mode = 'dark') {
   const root = document.documentElement
-  root.style.setProperty('--color-bg', theme.color.bg)
-  root.style.setProperty('--color-fg', theme.color.fg)
-  root.style.setProperty('--color-muted', theme.color.muted)
-  root.style.setProperty('--color-border', theme.color.border)
-  root.style.setProperty('--color-accent', theme.color.accent)
+  const palette = themes[mode] ?? themes.dark
+  root.dataset.theme = mode
+
+  for (const [cssVar, key] of Object.entries(TOKEN_MAP)) {
+    root.style.setProperty(cssVar, palette[key])
+  }
+
+  const meta = document.querySelector('meta[name="theme-color"]')
+  if (meta) meta.setAttribute('content', palette.metaTheme)
 }

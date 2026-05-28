@@ -14,7 +14,7 @@ export default function ServoMockup({ href = links.servo }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="servo-mockup group relative block overflow-hidden rounded-2xl border border-white/[0.1] bg-zinc-950 shadow-2xl shadow-blue-500/10 transition-[transform,box-shadow,border-color] duration-500 hover:scale-[1.008] hover:border-blue-500/20 hover:shadow-[0_32px_64px_-24px_rgba(59,130,246,0.3)] max-md:hover:scale-100 max-md:hover:shadow-2xl"
+      className="servo-mockup group relative block overflow-hidden rounded-2xl border border-glass bg-[var(--hero-panel-chrome)] shadow-2xl shadow-blue-500/10 transition-[transform,box-shadow,border-color] duration-500 hover:scale-[1.008] hover:border-blue-500/20 hover:shadow-[0_32px_64px_-24px_rgba(59,130,246,0.3)] light:border-slate-200 light:bg-white light:shadow-[0_16px_48px_-16px_rgba(15,23,42,0.15)] max-md:hover:scale-100 max-md:hover:shadow-2xl"
       aria-label="Visit Servo at servo.com.uy"
     >
       <div
@@ -22,20 +22,26 @@ export default function ServoMockup({ href = links.servo }) {
         aria-hidden="true"
       />
 
-      <div className="relative flex items-center gap-2 border-b border-white/[0.06] bg-zinc-900/95 px-4 py-2.5 backdrop-blur-sm">
+      <div
+        className="relative flex items-center gap-2 border-b border-subtle px-4 py-2.5 backdrop-blur-sm"
+        style={{ background: 'var(--hero-panel-chrome)' }}
+      >
         <span className="h-2 w-2 rounded-full bg-red-500/80" aria-hidden="true" />
         <span className="h-2 w-2 rounded-full bg-amber-500/80" aria-hidden="true" />
         <span className="h-2 w-2 rounded-full bg-emerald-500/80" aria-hidden="true" />
-        <div className="ml-2 flex flex-1 items-center gap-2 rounded-md border border-white/[0.08] bg-black/50 px-3 py-1">
+        <div
+          className="ml-2 flex flex-1 items-center gap-2 rounded-md border border-glass px-3 py-1"
+          style={{ background: 'var(--terminal-bg)' }}
+        >
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
-          <span className="font-mono text-[10px] text-zinc-400">servo.com.uy</span>
+          <span className="font-mono text-[10px] text-theme-muted">servo.com.uy</span>
         </div>
       </div>
 
-      <figure className="relative aspect-[1024/614] overflow-hidden bg-zinc-900">
+      <figure className="relative aspect-[1024/614] overflow-hidden bg-zinc-100 dark:bg-zinc-900">
         <img
           src={previewSrc}
-          alt="Captura de la página principal de Servo — marketplace de servicios en Uruguay"
+          alt="Screenshot of Servo homepage — services marketplace in Uruguay"
           width={liteMode ? 640 : 1024}
           height={liteMode ? 384 : 614}
           sizes="(max-width: 768px) 100vw, 560px"

@@ -16,7 +16,19 @@
       content="Fullstack engineer building production systems and products. Based in Montevideo, Uruguay."
     />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#050508" />
+    <meta name="theme-color" content="#050508" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('juanmadev-theme');
+          if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+          else document.documentElement.dataset.theme = 'dark';
+        } catch (e) {
+          document.documentElement.dataset.theme = 'dark';
+        }
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

@@ -13,9 +13,9 @@ function SecondaryProject({ project }) {
           className="absolute right-0 top-0 h-32 w-32 bg-gradient-to-bl from-violet-500/10 to-transparent"
           aria-hidden="true"
         />
-        <h3 className="relative text-xl font-semibold tracking-tight text-white">{project.name}</h3>
+        <h3 className="relative text-xl font-semibold tracking-tight text-heading">{project.name}</h3>
         <p className="relative mt-1 font-mono text-xs text-violet-400">{project.role}</p>
-        <p className="relative mt-4 text-sm leading-relaxed text-zinc-400">{project.description}</p>
+        <p className="relative mt-4 text-sm leading-relaxed text-theme-muted">{project.description}</p>
         <div className="relative mt-6 flex flex-wrap gap-2">
           {project.stack.map((tech) => (
             <Tag key={tech}>{tech}</Tag>

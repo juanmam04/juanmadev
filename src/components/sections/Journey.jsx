@@ -23,14 +23,14 @@ export default function Journey() {
             return (
               <InView key={`${item.year}-${index}`} delay={index * 100} as="li" className="relative pb-10 last:pb-0 pl-8">
                 <span
-                  className={`absolute left-0 flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-full border bg-[#050508] transition-all ${
+                  className={`absolute left-0 flex h-4 w-4 -translate-x-1/2 items-center justify-center rounded-full border bg-[var(--color-bg)] transition-all ${
                     isOpen
                       ? 'border-indigo-400 shadow-[0_0_16px_rgba(99,102,241,0.5)]'
-                      : 'border-white/[0.12]'
+                      : 'border-glass'
                   }`}
                   aria-hidden="true"
                 >
-                  <span className={`h-1.5 w-1.5 rounded-full ${isOpen ? 'bg-indigo-400' : 'bg-zinc-600'}`} />
+                  <span className={`h-1.5 w-1.5 rounded-full ${isOpen ? 'bg-indigo-400' : 'bg-zinc-400 dark:bg-zinc-600'}`} />
                 </span>
                 <button
                   type="button"
@@ -38,18 +38,18 @@ export default function Journey() {
                   className={`group w-full rounded-2xl border px-4 py-4 text-left transition-all duration-300 ${
                     isOpen
                       ? 'border-indigo-500/25 bg-indigo-500/10'
-                      : 'border-white/[0.05] bg-white/[0.02] hover:border-white/[0.1]'
+                      : 'border-subtle bg-glass hover:border-glass'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-4">
                     <time className="font-mono text-sm text-indigo-400">{item.year}</time>
                     <ChevronRight
                       size={16}
-                      className={`text-zinc-600 transition-transform ${isOpen ? 'rotate-90 text-indigo-400' : 'group-hover:translate-x-0.5'}`}
+                      className={`text-theme-muted-3 transition-transform ${isOpen ? 'rotate-90 text-indigo-400' : 'group-hover:translate-x-0.5'}`}
                       aria-hidden="true"
                     />
                   </div>
-                  <p className={`mt-2 text-base leading-relaxed ${isOpen ? 'text-zinc-200' : 'text-zinc-400'}`}>
+                  <p className={`mt-2 text-base leading-relaxed ${isOpen ? 'text-theme-fg' : 'text-theme-muted'}`}>
                     {item.title}
                   </p>
                 </button>

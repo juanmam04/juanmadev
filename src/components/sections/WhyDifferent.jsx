@@ -47,13 +47,13 @@ export default function WhyDifferent() {
                   <div className={`inline-flex rounded-xl border p-3 ${iconClass}`}>
                     <Icon size={20} aria-hidden="true" />
                   </div>
-                  <span className="mt-6 block font-mono text-xs tabular-nums text-zinc-600">
+                  <span className="mt-6 block font-mono text-xs tabular-nums text-theme-muted-3">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="mt-3 text-lg font-semibold tracking-tight text-white sm:text-xl">
+                  <h3 className="mt-3 text-lg font-semibold tracking-tight text-heading sm:text-xl">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-zinc-400">{item.description}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-theme-muted">{item.description}</p>
                 </article>
               </InteractiveSurface>
             </InView>

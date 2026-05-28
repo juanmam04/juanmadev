@@ -1,13 +1,16 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { applyThemeTokens } from './tokens/theme'
+import { applyThemeTokens, getStoredTheme } from './tokens/theme'
+import { ThemeProvider } from './context/ThemeProvider'
 import './index.css'
 import App from './App.jsx'
 
-applyThemeTokens()
+applyThemeTokens(getStoredTheme())
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </StrictMode>,
 )

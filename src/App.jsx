@@ -3,12 +3,12 @@ import { Analytics } from '@vercel/analytics/react'
 import { InteractiveProvider } from './context/InteractiveProvider'
 import { useSmoothScroll } from './hooks/useSmoothScroll'
 import Background from './components/ui/Background'
-import CursorGlow from './components/effects/CursorGlow'
 import ScrollProgress from './components/effects/ScrollProgress'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
 
+const AssistantChat = lazy(() => import('./components/assistant/AssistantChat'))
 const WhyDifferent = lazy(() => import('./components/sections/WhyDifferent'))
 const About = lazy(() => import('./components/sections/About'))
 const Journey = lazy(() => import('./components/sections/Journey'))
@@ -22,7 +22,7 @@ const Contact = lazy(() => import('./components/sections/Contact'))
 function SectionFallback() {
   return (
     <div className="section-padding">
-      <div className="h-48 animate-pulse rounded-2xl border border-white/[0.04] bg-white/[0.02]" aria-hidden="true" />
+      <div className="h-48 animate-pulse rounded-2xl border border-subtle bg-glass" aria-hidden="true" />
     </div>
   )
 }
@@ -39,14 +39,13 @@ function AppShell() {
         Skip to content
       </a>
       <ScrollProgress />
-      <CursorGlow />
       <Background />
       <Header />
       <main id="main">
         <Hero />
         <div className="relative">
           <div className="section-divider" aria-hidden="true" />
-          <div className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-50" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-0 -z-10 grid-bg opacity-50 light:opacity-40" aria-hidden="true" />
           <Suspense fallback={<SectionFallback />}>
             <WhyDifferent />
             <About />
@@ -61,6 +60,9 @@ function AppShell() {
         </div>
       </main>
       <Footer />
+      <Suspense fallback={null}>
+        <AssistantChat />
+      </Suspense>
     </>
   )
 }

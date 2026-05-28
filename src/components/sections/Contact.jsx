@@ -10,12 +10,9 @@ export default function Contact() {
     <Section id="contact" className="!pb-32">
       <InView>
         <InteractiveSurface intensity={4}>
-          <div className="contact-aurora relative overflow-hidden rounded-3xl border border-white/[0.1] p-[1px]">
-            <div
-              className="absolute inset-0 bg-gradient-to-br from-indigo-500/40 via-cyan-500/20 to-violet-500/40"
-              aria-hidden="true"
-            />
-            <div className="relative rounded-[23px] bg-[#050508]/95 p-8 sm:p-12 lg:p-16">
+          <div className="contact-aurora relative overflow-hidden rounded-3xl border border-glass p-[1px]">
+            <div className="contact-aurora-border absolute inset-0" aria-hidden="true" />
+            <div className="relative rounded-[23px] bg-panel p-8 sm:p-12 lg:p-16">
               <div
                 className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-indigo-500/20 blur-[80px]"
                 aria-hidden="true"
@@ -24,8 +21,8 @@ export default function Contact() {
                 className="pointer-events-none absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-cyan-500/15 blur-[80px]"
                 aria-hidden="true"
               />
-              <p className="font-mono text-xs uppercase tracking-[0.2em] text-indigo-400">Get in touch</p>
-              <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+              <p className="section-label font-mono text-xs uppercase tracking-[0.2em] text-indigo-400">Get in touch</p>
+              <h2 className="mt-4 text-2xl font-semibold tracking-tight text-heading sm:text-4xl lg:text-5xl">
                 {contact.title}
               </h2>
               <p className="text-lead mt-5 max-w-2xl">

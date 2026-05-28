@@ -27,7 +27,7 @@ export default function About() {
                 <p
                   key={p.slice(0, 32)}
                   className={`text-base leading-relaxed transition-opacity duration-300 sm:text-lg ${
-                    i === active ? 'text-zinc-300' : 'text-zinc-500'
+                    i === active ? 'text-theme-muted' : 'text-theme-muted-2'
                   }`}
                 >
                   {p}
@@ -38,7 +38,7 @@ export default function About() {
           <InView delay={200}>
             <InteractiveSurface intensity={5}>
               <aside className="surface-card p-6">
-                <p className="font-mono text-[10px] uppercase tracking-widest text-zinc-600">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-theme-muted-3">
                   Snapshot
                 </p>
                 <ul className="mt-4 space-y-2">
@@ -49,13 +49,13 @@ export default function About() {
                         className={`w-full rounded-xl border px-4 py-3 text-left transition-all duration-300 ${
                           active === i
                             ? 'border-indigo-500/30 bg-indigo-500/10 shadow-[0_0_24px_-12px_rgba(99,102,241,0.4)]'
-                            : 'border-transparent hover:border-white/[0.06] hover:bg-white/[0.03]'
+                            : 'border-transparent hover:border-subtle hover:bg-glass'
                         }`}
                         onMouseEnter={() => setActive(i)}
                         onFocus={() => setActive(i)}
                       >
-                        <span className="text-xs text-zinc-600">{h.label}</span>
-                        <span className="mt-1 block text-sm font-semibold text-zinc-200">{h.value}</span>
+                        <span className="text-xs text-theme-muted-3">{h.label}</span>
+                        <span className="mt-1 block text-sm font-semibold text-theme-fg">{h.value}</span>
                         <span className="mt-0.5 font-mono text-[10px] text-indigo-400/80">{h.detail}</span>
                       </button>
                     </li>

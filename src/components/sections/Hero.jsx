@@ -3,7 +3,7 @@ import { useTypewriter } from '../../hooks/useTypewriter'
 import Badge from '../ui/Badge'
 import Button from '../ui/Button'
 import HeroPanel from '../ui/HeroPanel'
-import DotField from '../canvas/DotField'
+import LinkField from '../canvas/LinkField'
 import InView from '../motion/InView'
 import Magnetic from '../motion/Magnetic'
 import { SocialIcon } from '../ui/SocialIcons'
@@ -21,11 +21,9 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-24 lg:min-h-[min(92vh,920px)] lg:pt-36 lg:pb-28">
       <div className="absolute inset-0">
-        <DotField />
-        <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(99,102,241,0.1),transparent)]"
-          aria-hidden="true"
-        />
+        <LinkField />
+        <div className="grid-bg pointer-events-none absolute inset-0 opacity-35 light:opacity-25" aria-hidden="true" />
+        <div className="hero-radial-glow absolute inset-0" aria-hidden="true" />
         <div
           className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-bg)]"
           aria-hidden="true"
@@ -40,41 +38,41 @@ export default function Hero() {
             </InView>
 
             <InView delay={60}>
-              <p className="mt-5 text-base font-medium text-zinc-400 sm:mt-6 sm:text-lg">
+              <p className="mt-5 text-base font-medium text-theme-muted sm:mt-6 sm:text-lg">
                 {site.name}
               </p>
-              <p className="mt-1 font-mono text-xs text-zinc-600 sm:text-sm">
+              <p className="mt-1 font-mono text-xs text-theme-muted-3 sm:text-sm">
                 {site.title} · {site.location}
               </p>
             </InView>
 
             <InView delay={120}>
               <h1 className="text-display mt-5 max-w-4xl sm:mt-6">
-                <span className="text-gradient-hero">I build software</span>
+                <span className="hero-title-accent">I build software</span>
                 <br />
-                <span className="text-white">products from scratch.</span>
+                <span className="text-heading">products from scratch.</span>
               </h1>
             </InView>
 
             <InView delay={180}>
-              <p className="text-lead mt-5 max-w-xl text-zinc-300 sm:mt-6">
+              <p className="text-lead mt-5 max-w-xl sm:mt-6">
                 {hero.subheadline}
               </p>
             </InView>
 
             <InView delay={240}>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-zinc-500 sm:text-base">
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-theme-muted-2 sm:text-base">
                 {hero.supporting}
               </p>
             </InView>
 
             <InView delay={300}>
               <div
-                className="mt-5 flex min-h-[2.75rem] items-center gap-2 rounded-xl border border-white/[0.07] bg-white/[0.025] px-4 py-3 font-mono text-xs backdrop-blur-sm sm:text-sm"
+                className="glass-chip mt-5 flex min-h-[2.75rem] items-center gap-2 px-4 py-3 font-mono text-xs sm:text-sm"
                 aria-label={`Focus: ${typed}`}
               >
                 <span className="text-indigo-400/90">$</span>
-                <span className="truncate text-zinc-400">{typed}</span>
+                <span className="truncate text-theme-muted">{typed}</span>
                 <span className="animate-pulse text-indigo-400/80" aria-hidden="true">
                   |
                 </span>
@@ -138,11 +136,11 @@ export default function Hero() {
               {hero.credibility.map((item, i) => (
                 <li key={item}>
                   <Magnetic strength={0.12}>
-                    <div className="group flex h-full cursor-default items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3.5 py-3 transition-all duration-300 hover:border-indigo-500/25 hover:bg-indigo-500/[0.07] hover:shadow-[0_0_28px_-14px_rgba(99,102,241,0.45)] sm:px-4">
+                    <div className="group flex h-full cursor-default items-center gap-3 rounded-xl border border-subtle bg-glass px-3.5 py-3 transition-all duration-300 hover:border-indigo-500/25 hover:bg-indigo-500/[0.07] hover:shadow-[0_0_28px_-14px_rgba(99,102,241,0.45)] sm:px-4">
                       <span className="font-mono text-[10px] tabular-nums text-indigo-500/60 group-hover:text-indigo-400 sm:text-xs">
                         {String(i + 1).padStart(2, '0')}
                       </span>
-                      <span className="text-xs font-medium text-zinc-500 group-hover:text-zinc-200 sm:text-sm">
+                      <span className="text-xs font-medium text-theme-muted-2 group-hover:text-theme-fg sm:text-sm">
                         {item}
                       </span>
                     </div>

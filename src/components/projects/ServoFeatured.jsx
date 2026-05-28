@@ -14,30 +14,30 @@ export default function ServoFeatured({ project }) {
       aria-labelledby="servo-title"
     >
       <div
-        className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-indigo-500/20 via-transparent to-cyan-500/10 opacity-60 blur-3xl transition-opacity duration-700 group-hover:opacity-90"
+        className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-indigo-500/20 via-transparent to-cyan-500/10 opacity-60 blur-3xl transition-opacity duration-700 group-hover:opacity-90 light:opacity-30 light:group-hover:opacity-50"
         aria-hidden="true"
       />
 
-      <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-zinc-900/25 shadow-[0_24px_80px_-40px_rgba(99,102,241,0.35)]">
+      <div className="featured-panel surface-card relative overflow-hidden rounded-3xl border shadow-[0_24px_80px_-40px_rgba(99,102,241,0.35)] light:shadow-[0_20px_50px_-20px_rgba(15,23,42,0.14)]">
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/[0.07] via-transparent to-cyan-500/[0.05]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/[0.07] via-transparent to-cyan-500/[0.05] light:from-indigo-500/[0.04] light:to-cyan-500/[0.03]"
           aria-hidden="true"
         />
 
         <div className="relative grid gap-10 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:items-start lg:gap-12 lg:p-10 xl:gap-14">
           <div className="flex min-w-0 flex-col">
-            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-300">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-xs font-medium text-indigo-300 light:border-indigo-200 light:bg-indigo-50 light:text-indigo-800">
               <Sparkles size={12} aria-hidden="true" />
               Featured product
             </span>
 
-            <h3 id="servo-title" className="mt-5 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h3 id="servo-title" className="mt-5 text-3xl font-semibold tracking-tight text-heading sm:text-4xl">
               {project.name}
             </h3>
-            <p className="mt-2 font-mono text-sm text-cyan-400/90">{project.role}</p>
-            <p className="mt-1 text-sm text-zinc-500">{project.subtitle}</p>
+            <p className="mt-2 font-mono text-sm text-cyan-400/90 light:text-teal-700">{project.role}</p>
+            <p className="mt-1 text-sm text-theme-muted-2">{project.subtitle}</p>
 
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-zinc-300">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-theme-muted">
               {project.description}
             </p>
 
