@@ -87,6 +87,26 @@
     animation: shimmer 14s ease-in-out infinite;
   }
 
+  /* Typewriter line: cursor stays at end of text, not full row width */
+  .hero-title-rotate {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 1.15em;
+    vertical-align: top;
+  }
+
+  .hero-title-caret {
+    display: inline;
+    margin-left: 1px;
+    color: rgba(129, 140, 248, 0.85);
+    animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  [data-theme="light"] .hero-title-caret {
+    color: rgba(79, 70, 229, 0.75);
+  }
+
   .text-display {
     @apply text-[2.125rem] font-semibold leading-[1.04] tracking-[-0.035em] sm:text-5xl lg:text-[3.75rem];
   }

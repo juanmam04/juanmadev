@@ -1,9 +1,10 @@
 import { hero, links, site, socialLinks } from '../../data/site'
 import { useTypewriter } from '../../hooks/useTypewriter'
+import { useReducedMotion } from '../../hooks/useReducedMotion'
 import Badge from '../ui/Badge'
 import Button from '../ui/Button'
 import HeroPanel from '../ui/HeroPanel'
-import LinkField from '../canvas/LinkField'
+import HeroBackground from '../effects/HeroBackground'
 import InView from '../motion/InView'
 import Magnetic from '../motion/Magnetic'
 import { SocialIcon } from '../ui/SocialIcons'
@@ -17,18 +18,12 @@ const terminalLines = [
 
 export default function Hero() {
   const typed = useTypewriter(terminalLines)
+  const titleLine = useTypewriter(hero.titleVariants, { speed: 42, pause: 2400 })
+  const reducedMotion = useReducedMotion()
 
   return (
     <section className="relative overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-24 lg:min-h-[min(92vh,920px)] lg:pt-36 lg:pb-28">
-      <div className="absolute inset-0">
-        <LinkField />
-        <div className="grid-bg pointer-events-none absolute inset-0 opacity-35 light:opacity-25" aria-hidden="true" />
-        <div className="hero-radial-glow absolute inset-0" aria-hidden="true" />
-        <div
-          className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--color-bg)]"
-          aria-hidden="true"
-        />
-      </div>
+      <HeroBackground />
 
       <div className="container-main relative px-5 sm:px-8 lg:px-12">
         <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-14 xl:gap-16">
@@ -48,9 +43,19 @@ export default function Hero() {
 
             <InView delay={120}>
               <h1 className="text-display mt-5 max-w-4xl sm:mt-6">
-                <span className="hero-title-accent">I build software</span>
+                <span className="hero-title-accent">{hero.titleAccent}</span>
                 <br />
-                <span className="text-heading">products from scratch.</span>
+                <span
+                  className="hero-title-rotate text-heading"
+                  aria-label={`${hero.titleAccent} ${hero.titleVariants.join(', ')}`}
+                >
+                  <span aria-hidden="true">{titleLine}</span>
+                  {!reducedMotion && (
+                    <span className="hero-title-caret" aria-hidden="true">
+                      |
+                    </span>
+                  )}
+                </span>
               </h1>
             </InView>
 

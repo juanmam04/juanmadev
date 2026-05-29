@@ -46,7 +46,7 @@ export function buildAssistantKnowledge() {
 
     block('Hero / main message', [
       `Badge: ${hero.badge}`,
-      `Headline: ${hero.headline}`,
+      `Headline: ${hero.titleAccent} ${hero.titleVariants.join(' / ')}`,
       `Subheadline: ${hero.subheadline}`,
       `Supporting: ${hero.supporting}`,
       `Pillars: ${hero.credibility.join(', ')}`,

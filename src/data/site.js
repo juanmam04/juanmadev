@@ -26,7 +26,15 @@ export const navigation = [
 
 export const hero = {
   badge: 'Available for startup opportunities',
-  headline: 'I build software products from scratch.',
+  headline: 'I build software that ships to production.',
+  titleAccent: 'I build software',
+  titleVariants: [
+    'that ships to production.',
+    'end to end.',
+    'for startup teams.',
+    'from UI to infrastructure.',
+    'people actually use.',
+  ],
   subheadline:
     'Fullstack Software Engineer based in Uruguay, working across frontend, backend, cloud infrastructure, product development, and automation systems.',
   supporting:
